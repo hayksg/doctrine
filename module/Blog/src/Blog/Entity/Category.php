@@ -94,4 +94,18 @@ class Category
     {
         return $this->categoryName;
     }
+
+    public function exchangeArray(array $data)
+    {
+        foreach ($data as $key => $value) {
+            if (property_exists($this, $key)) {
+                $this->$key = ($value !== null) ? $value : null;
+            }
+        }
+    }
+
+    public function getArrayCopy()
+    {
+        return get_object_vars($this);
+    }
 }

@@ -34,10 +34,23 @@ class Module
     {
         return [
             'factories' => [
+                // tables
                 'Admin\Model\CategoryTable' => function ($sm) {
                     return new Model\CategoryTable(
                         $sm->get('Doctrine\ORM\EntityManager')
                     );
+                },
+
+                // forms
+                'Admin\Form\CategoryForm' => function ($sm) {
+                    $form = new Form\CategoryForm();
+                    $form->setInputFilter($sm->get('Admin\Form\CategoryFilter'));
+                    return $form;
+                },
+
+                // filters
+                'Admin\Form\CategoryFilter' => function ($sm) {
+                    return new Filter\CategoryFilter();
                 }
             ],
         ];
@@ -49,7 +62,8 @@ class Module
             'factories' => [
                 'Admin\Controller\Category' => function ($sm) {
                     return new Controller\CategoryController(
-                        $sm->getServiceLocator()->get('Admin\Model\CategoryTable')
+                        $sm->getServiceLocator()->get('Admin\Model\CategoryTable'),
+                        $sm->getServiceLocator()->get('Admin\Form\CategoryForm')
                     );
                 }
             ],

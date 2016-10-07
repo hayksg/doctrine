@@ -104,7 +104,52 @@ return array(
         ),
     ),
     'navigation' => [
-        'default' => [],
+        'default' => [
+            'home' => [
+                'label' => 'Home',
+                'route' => 'home',
+                'pages' => [
+                    'admin' => [
+                        'label' => 'Admin',
+                        'route' => 'admin',
+                        'pages' => [
+                            'category' => [
+                                'label' => 'Categories',
+                                'route' => 'admin/category',
+                                'pages' => [
+                                    'add' => [
+                                        'label'  => 'Add',
+                                        'route'  => 'admin/category',
+                                        'action' => 'add',
+                                    ],
+                                    'edit' => [
+                                        'label'  => 'Edit',
+                                        'route'  => 'admin/category',
+                                        'action' => 'edit',
+                                    ],
+                                ],
+                            ],
+                            'article' => [
+                                'label' => 'Articles',
+                                'route' => 'admin/article',
+                                'pages' => [
+                                    'add' => [
+                                        'label'  => 'Add',
+                                        'route'  => 'admin/article',
+                                        'action' => 'add',
+                                    ],
+                                    'edit' => [
+                                        'label'  => 'Edit',
+                                        'route'  => 'admin/article',
+                                        'action' => 'edit',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
         'top_navigation' => [
             'home' => [
                 'label' => 'Home',

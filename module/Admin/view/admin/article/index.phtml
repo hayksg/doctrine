@@ -2,5 +2,14 @@
 $headTitle = 'Articles';
 $this->headTitle($headTitle);
 ?>
-<h3><?= $this->escapeHtml($headTitle) ?></h3>
+<div class="row">
+    <div class="col-xs-6">
+        <h3><?= $this->escapeHtml($headTitle) ?></h3>
+    </div>
+    <div class="col-xs-6">
+        <div class="breadcrumb-box">
+            <?= $this->navigation('navigation')->breadcrumbs()->setminDepth(1)->setPartial('partial/breadcrumb') ?>
+        </div>
+    </div>
+</div>
 <br>
