@@ -29,6 +29,36 @@ return array(
                             ),
                         ),
                     ),
+                    'category' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/category[/:action[/:id]]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'Admin\Controller',
+                                'controller'    => 'Category',
+                                'action'        => 'index',
+                            ),
+                        ),
+                    ),
+                    'article' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/article[/:action[/:id]]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                '__NAMESPACE__' => 'Admin\Controller',
+                                'controller'    => 'Article',
+                                'action'        => 'index',
+                            ),
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -45,7 +75,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Admin\Controller\Index' => Controller\IndexController::class
+            'Admin\Controller\Index'    => Controller\IndexController::class,
+            //'Admin\Controller\Category' => Controller\CategoryController::class,
+            'Admin\Controller\Article'  => Controller\ArticleController::class,
         ),
     ),
     'view_manager' => array(

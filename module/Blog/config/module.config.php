@@ -3,6 +3,20 @@
 namespace Blog;
 
 return array(
+    'doctrine' => array(
+        'driver' => array(
+            'Blog_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/Blog/Entity')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Blog\Entity' =>  'Blog_driver'
+                ),
+            ),
+        ),
+    ),
     'router' => array(
         'routes' => array(
             'blog' => array(

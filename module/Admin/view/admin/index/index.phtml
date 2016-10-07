@@ -3,4 +3,10 @@ $headTitle = 'Admin';
 $this->headTitle($headTitle);
 ?>
 <h3><?= $this->escapeHtml($headTitle) ?></h3>
+<p>You have the following capabilities:</p>
+<ul class="list-unstyled">
+    <li><a href="admin/category">Manage categories</a></li>
+    <li><a href="admin/article">Manage articles</a></li>
+    <li><a href="admin/comment">Manage comments</a></li>
+</ul>
 <br>
