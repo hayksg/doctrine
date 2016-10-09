@@ -47,10 +47,11 @@ return array(
                     'article' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/article[/:action[/:id]]',
+                            'route'    => '/article[/page/:page][/:action[/:id]]',
                             'constraints' => array(
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'id'     => '[0-9]+',
+                                'page'   => '[0-9]+',
                             ),
                             'defaults' => array(
                                 '__NAMESPACE__' => 'Admin\Controller',
@@ -77,7 +78,7 @@ return array(
         'invokables' => array(
             'Admin\Controller\Index'    => Controller\IndexController::class,
             //'Admin\Controller\Category' => Controller\CategoryController::class,
-            'Admin\Controller\Article'  => Controller\ArticleController::class,
+            //'Admin\Controller\Article'  => Controller\ArticleController::class,
         ),
     ),
     'view_manager' => array(

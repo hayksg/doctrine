@@ -77,3 +77,17 @@ div.container a.brand {
 .form-horizontal ul li {
     color: #d00;
 }
+
+.tooltip-inner {
+    background-color: #158cba;
+    color: #ffffff;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #158cba;
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
